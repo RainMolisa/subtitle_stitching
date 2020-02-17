@@ -27,10 +27,7 @@ int main(int argc, char** argv)
 std::vector<std::string> GetFiles(std::string folder_path)
 {
 	std::vector<std::string> files;
-	//文件句柄
-	//intptr_t hFile = 0;//Win10
 	long long hFile = 0;
-	//文件信息  
 	struct _finddata_t fileinfo;
 	std::string p;
 	try
@@ -39,8 +36,6 @@ std::vector<std::string> GetFiles(std::string folder_path)
 		{
 			do
 			{
-				//如果是目录,迭代之  
-				//如果不是,加入列表  
 				if (!(fileinfo.attrib & _A_SUBDIR))
 				{
 					files.push_back(p.assign(folder_path).append("\\").append(fileinfo.name));
